@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Counter</title>
+    
+</head>
+<body>
+    <div id="main">
+        <div id="gameBox">
+            <h1>You can earn money. Please tap me.</h1>
+            <h2>Now you have <span>0</span> coins</h2>
+            <div id="imgHamster">
+                <img src="hamster.jpeg" alt="" onclick="count()">
+            </div>
+        </div>
+    
+    </div>
+    
+    <script>
+        if (!localStorage.getItem('counter')) {
+            localStorage.setItem('counter', 0);
+        }
+        //let counter = 0;
+        let counter = localStorage.getItem('counter');
+        function count(){
+            counter ++;
+            console.log("counter=", counter);
+            document.querySelector('h2 > span').innerHTML = counter;
+            localStorage.setItem('counter', counter);
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('h2 > span').innerHTML = localStorage.getItem('counter');   
+        });
+
+    </script>
+</body>
+</html>
